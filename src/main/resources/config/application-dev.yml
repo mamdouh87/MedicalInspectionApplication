@@ -37,18 +37,21 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/MedicalInspectionApplication
-    username: MedicalInspectionApplication
-    password:
+    url: jdbc:postgresql://192.168.1.18:5432/demo?currentSchema=medical_inspection
+    username: postgres
+    password: postgres
     hikari:
       poolName: Hikari
       auto-commit: false
   jpa:
     database-platform: io.github.jhipster.domain.util.FixedPostgreSQL10Dialect
     show-sql: true
+    hibernate:
+      ddl-auto: update
+      default_schema: medical_inspection
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
   mail:
     host: localhost
     port: 25
