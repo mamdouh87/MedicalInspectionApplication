@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity RequestInseptionDetails.
+    -->
+    <changeSet id="20200824161445-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="medical_condition_id"
+                                 baseTableName="request_inseption_details"
+                                 constraintName="fk_request_inseption_details_medical_condition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_condition"/>
+
+        <addForeignKeyConstraint baseColumnNames="inspection_type_id"
+                                 baseTableName="request_inseption_details"
+                                 constraintName="fk_request_inseption_details_inspection_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inspection_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="inspection_result_id"
+                                 baseTableName="request_inseption_details"
+                                 constraintName="fk_request_inseption_details_inspection_result_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inspection_result"/>
+
+        <addForeignKeyConstraint baseColumnNames="medical_insepction_requests_id"
+                                 baseTableName="request_inseption_details"
+                                 constraintName="fk_request_inseption_details_medical_insepction_requests_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_insepction_requests"/>
+
+    </changeSet>
+</databaseChangeLog>

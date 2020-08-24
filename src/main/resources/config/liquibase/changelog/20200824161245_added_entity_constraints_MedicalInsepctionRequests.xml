@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity MedicalInsepctionRequests.
+    -->
+    <changeSet id="20200824161245-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="person_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_person_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="persons"/>
+
+        <addForeignKeyConstraint baseColumnNames="biometricdata_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_biometricdata_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="request_biometric_data"/>
+
+        <addForeignKeyConstraint baseColumnNames="license_category_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_license_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="license_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="transacion_type_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_transacion_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="transaction_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="traffic_unit_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_traffic_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="traffic_units"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="request_status"/>
+
+    </changeSet>
+</databaseChangeLog>
