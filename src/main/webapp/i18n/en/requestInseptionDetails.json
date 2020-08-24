@@ -1,0 +1,29 @@
+{
+  "medicalInspectionApplicationApp": {
+    "requestInseptionDetails": {
+      "home": {
+        "title": "Request Inseption Details",
+        "createLabel": "Create a new Request Inseption Details",
+        "createOrEditLabel": "Create or edit a Request Inseption Details",
+        "notFound": "No Request Inseption Details found"
+      },
+      "created": "A new Request Inseption Details is created with identifier {{ param }}",
+      "updated": "A Request Inseption Details is updated with identifier {{ param }}",
+      "deleted": "A Request Inseption Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Request Inseption Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Request Inseption Details"
+      },
+      "rigthEye": "Rigth Eye",
+      "leftEye": "Left Eye",
+      "bloodGroup": "Blood Group",
+      "doctorComments": "Doctor Comments",
+      "medicalCondition": "Medical Condition",
+      "inspectionType": "Inspection Type",
+      "inspectionResult": "Inspection Result",
+      "medicalInsepctionRequests": "Medical Insepction Requests"
+    }
+  }
+}

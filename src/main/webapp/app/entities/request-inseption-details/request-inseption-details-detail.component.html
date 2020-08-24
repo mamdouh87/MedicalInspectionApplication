@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="requestInseptionDetails">
+            <h2><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.detail.title">Request Inseption Details</span> {{ requestInseptionDetails.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.rigthEye">Rigth Eye</span></dt>
+                <dd>
+                    <span>{{ requestInseptionDetails.rigthEye }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.leftEye">Left Eye</span></dt>
+                <dd>
+                    <span>{{ requestInseptionDetails.leftEye }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.bloodGroup">Blood Group</span></dt>
+                <dd>
+                    <span>{{ requestInseptionDetails.bloodGroup }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.doctorComments">Doctor Comments</span></dt>
+                <dd>
+                    <span>{{ requestInseptionDetails.doctorComments }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.medicalCondition">Medical Condition</span></dt>
+                <dd>
+                    <div *ngIf="requestInseptionDetails.medicalConditionId">
+                        <a [routerLink]="['/medical-condition', requestInseptionDetails.medicalConditionId, 'view']">{{ requestInseptionDetails.medicalConditionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.inspectionType">Inspection Type</span></dt>
+                <dd>
+                    <div *ngIf="requestInseptionDetails.inspectionTypeId">
+                        <a [routerLink]="['/inspection-type', requestInseptionDetails.inspectionTypeId, 'view']">{{ requestInseptionDetails.inspectionTypeId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.inspectionResult">Inspection Result</span></dt>
+                <dd>
+                    <div *ngIf="requestInseptionDetails.inspectionResultId">
+                        <a [routerLink]="['/inspection-result', requestInseptionDetails.inspectionResultId, 'view']">{{ requestInseptionDetails.inspectionResultId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.medicalInsepctionRequests">Medical Insepction Requests</span></dt>
+                <dd>
+                    <div *ngIf="requestInseptionDetails.medicalInsepctionRequestsId">
+                        <a [routerLink]="['/medical-insepction-requests', requestInseptionDetails.medicalInsepctionRequestsId, 'view']">{{ requestInseptionDetails.medicalInsepctionRequestsId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/request-inseption-details', requestInseptionDetails.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.home.title">Request Inseption Details</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-request-inseption-details" [routerLink]="['/request-inseption-details/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.home.createLabel">
+            Create a new Request Inseption Details
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="requestInseptionDetails?.length === 0">
+        <span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.home.notFound">No requestInseptionDetails found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="requestInseptionDetails && requestInseptionDetails.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rigthEye"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.rigthEye">Rigth Eye</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="leftEye"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.leftEye">Left Eye</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bloodGroup"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.bloodGroup">Blood Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="doctorComments"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.doctorComments">Doctor Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalConditionId"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.medicalCondition">Medical Condition</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inspectionTypeId"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.inspectionType">Inspection Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inspectionResultId"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.inspectionResult">Inspection Result</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalInsepctionRequestsId"><span jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.medicalInsepctionRequests">Medical Insepction Requests</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let requestInseptionDetails of requestInseptionDetails ;trackBy: trackId">
+                    <td><a [routerLink]="['/request-inseption-details', requestInseptionDetails.id, 'view']">{{ requestInseptionDetails.id }}</a></td>
+                    <td>{{ requestInseptionDetails.rigthEye }}</td>
+                    <td>{{ requestInseptionDetails.leftEye }}</td>
+                    <td>{{ requestInseptionDetails.bloodGroup }}</td>
+                    <td>{{ requestInseptionDetails.doctorComments }}</td>
+                    <td>
+                        <div *ngIf="requestInseptionDetails.medicalConditionId">
+                            <a [routerLink]="['/medical-condition', requestInseptionDetails.medicalConditionId , 'view']" >{{ requestInseptionDetails.medicalConditionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="requestInseptionDetails.inspectionTypeId">
+                            <a [routerLink]="['/inspection-type', requestInseptionDetails.inspectionTypeId , 'view']" >{{ requestInseptionDetails.inspectionTypeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="requestInseptionDetails.inspectionResultId">
+                            <a [routerLink]="['/inspection-result', requestInseptionDetails.inspectionResultId , 'view']" >{{ requestInseptionDetails.inspectionResultId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="requestInseptionDetails.medicalInsepctionRequestsId">
+                            <a [routerLink]="['/medical-insepction-requests', requestInseptionDetails.medicalInsepctionRequestsId , 'view']" >{{ requestInseptionDetails.medicalInsepctionRequestsId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/request-inseption-details', requestInseptionDetails.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/request-inseption-details', requestInseptionDetails.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(requestInseptionDetails)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="requestInseptionDetails && requestInseptionDetails.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

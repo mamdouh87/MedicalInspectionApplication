@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-request-inseption-details-heading" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.home.createOrEditLabel">Create or edit a Request Inseption Details</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.rigthEye" for="field_rigthEye">Rigth Eye</label>
+                    <input type="text" class="form-control" name="rigthEye" id="field_rigthEye"
+                           formControlName="rigthEye"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.leftEye" for="field_leftEye">Left Eye</label>
+                    <input type="text" class="form-control" name="leftEye" id="field_leftEye"
+                           formControlName="leftEye"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.bloodGroup" for="field_bloodGroup">Blood Group</label>
+                    <input type="text" class="form-control" name="bloodGroup" id="field_bloodGroup"
+                           formControlName="bloodGroup"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.doctorComments" for="field_doctorComments">Doctor Comments</label>
+                    <input type="text" class="form-control" name="doctorComments" id="field_doctorComments"
+                           formControlName="doctorComments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.medicalCondition" for="field_medicalCondition">Medical Condition</label>
+                    <select class="form-control" id="field_medicalCondition" name="medicalCondition" formControlName="medicalConditionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medicalConditionOption.id" *ngFor="let medicalConditionOption of medicalconditions; trackBy: trackById">{{ medicalConditionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.inspectionType" for="field_inspectionType">Inspection Type</label>
+                    <select class="form-control" id="field_inspectionType" name="inspectionType" formControlName="inspectionTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inspectionTypeOption.id" *ngFor="let inspectionTypeOption of inspectiontypes; trackBy: trackById">{{ inspectionTypeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.inspectionResult" for="field_inspectionResult">Inspection Result</label>
+                    <select class="form-control" id="field_inspectionResult" name="inspectionResult" formControlName="inspectionResultId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inspectionResultOption.id" *ngFor="let inspectionResultOption of inspectionresults; trackBy: trackById">{{ inspectionResultOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.requestInseptionDetails.medicalInsepctionRequests" for="field_medicalInsepctionRequests">Medical Insepction Requests</label>
+                    <select class="form-control" id="field_medicalInsepctionRequests" name="medicalInsepctionRequests" formControlName="medicalInsepctionRequestsId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medicalInsepctionRequestsOption.id" *ngFor="let medicalInsepctionRequestsOption of medicalinsepctionrequests; trackBy: trackById">{{ medicalInsepctionRequestsOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

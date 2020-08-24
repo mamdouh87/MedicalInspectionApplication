@@ -1,0 +1,29 @@
+{
+  "name": "Country",
+  "fields": [
+    {
+      "fieldName": "countryNameEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "countryNameAr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "countryCode",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200824162045",
+  "entityTableName": "country",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

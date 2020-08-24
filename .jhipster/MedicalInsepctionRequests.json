@@ -1,0 +1,76 @@
+{
+  "name": "MedicalInsepctionRequests",
+  "fields": [
+    {
+      "fieldName": "requestNumber",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "persons",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "person",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "requestBiometricData",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "biometricdata",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "licenseCategory",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "licenseCategory",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "transactionType",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "transacionType",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "trafficUnits",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "trafficUnit",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "requestStatus",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "status",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "requestInseptionDetails",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "medicalInsepctionRequests"
+    }
+  ],
+  "changelogDate": "20200824161245",
+  "entityTableName": "medical_insepction_requests",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

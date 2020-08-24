@@ -1,0 +1,65 @@
+{
+  "name": "RequestInseptionDetails",
+  "fields": [
+    {
+      "fieldName": "rigthEye",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "leftEye",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bloodGroup",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "doctorComments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "medicalCondition",
+      "otherEntityRelationshipName": "requestInseptionDetails",
+      "relationshipName": "medicalCondition",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "inspectionType",
+      "otherEntityRelationshipName": "requestInseptionDetails",
+      "relationshipName": "inspectionType",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "inspectionResult",
+      "otherEntityRelationshipName": "requestInseptionDetails",
+      "relationshipName": "inspectionResult",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicalInsepctionRequests",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "medicalInsepctionRequests",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200824161445",
+  "entityTableName": "request_inseption_details",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
